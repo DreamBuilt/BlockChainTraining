@@ -500,12 +500,12 @@ if __name__ == '__main__':
 
     node1 = Node('节点1', 8001)
     node1.start()
-    time.sleep(13)
+    time.sleep(5)
     node1.print_blockchain()
 
     node2 = Node("节点2", 9000)
     node2.start()
-    time.sleep(13)
+    time.sleep(5)
     # time.sleep(100000)
     node2.print_blockchain()
 
@@ -520,6 +520,15 @@ if __name__ == '__main__':
     sig = node1.wallet.sign(new_transaction)
     new_transaction.set_sign(sig, node1.wallet.pubkey)
     node1.submit_transaction(new_transaction)
+    time.sleep(3)
+    node1.print_blockchain()
+
+    time.sleep(3)
+    node2.print_blockchain()
+    time.sleep(3)
+    node1.get_balance()
+    time.sleep(3)
+    node2.get_balance()
     # new_transaction = Transaction(
     #     sender=node1.wallet.address,
     #     recipient=node2.wallet.address,
